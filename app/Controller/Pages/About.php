@@ -8,7 +8,7 @@ use \App\Model\Entity\Organization;
 class About extends Page {
 
     /**
-     * Método responsável por retornar o conteúdo (view) da Home
+     * Método responsável por retornar o conteúdo (view) da Página de sobre
      *
      * @return string
      */
