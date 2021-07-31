@@ -3,25 +3,24 @@
 require __DIR__ . '/vendor/autoload.php';
 
 use \App\Http\Router;
-use \App\Http\Response;
-use \App\Controller\Pages\Home;
+use \App\Utils\View;
 
 define('URL', 'http://localhost/mvcphp');
 
+// Define o valor padrão das variáveis
+View::init([
+    'URL' => URL
+]);
 
+// Inicia o router
 $obRouter = new Router(URL);
 
 // echo '<pre>';
 // print_r($obRouter);
 // echo '</pre>';
 
-// Rota Home
-
-$obRouter->get('/', [
-    function() {
-        return new Response(200, Home::getHome());
-    }
-]);
+// Inclui as rotas de páginas
+include __DIR__ . '/routes/pages.php';
 
 // Imprime o Response da rota
 $obRouter->run()
