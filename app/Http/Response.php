@@ -91,7 +91,7 @@ class Response {
         switch($this->contentType) {
             case 'text/html':
                 echo $this->content;
-                exit;
+                break;
         }
     }
 }

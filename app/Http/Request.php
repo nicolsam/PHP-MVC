@@ -39,7 +39,7 @@ class Request {
      */
     private $headers = [];
 
-    /**
+    /** 
      * Construtor da classe
      */
     public function __construct() {

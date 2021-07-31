@@ -2,6 +2,27 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
+use \App\Http\Router;
+use \App\Http\Response;
 use \App\Controller\Pages\Home;
 
-echo Home::getHome();
+define('URL', 'http://localhost/mvcphp');
+
+
+$obRouter = new Router(URL);
+
+// echo '<pre>';
+// print_r($obRouter);
+// echo '</pre>';
+
+// Rota Home
+
+$obRouter->post('/', [
+    function() {
+        return new Response(200, Home::getHome());
+    }
+]);
+
+// Imprime o Response da rota
+$obRouter->run()
+         ->sendResponse();
