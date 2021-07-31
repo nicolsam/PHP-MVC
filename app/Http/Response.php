@@ -84,7 +84,10 @@ class Response {
      * Método responsável por enviar a resposta para o usuário
      */
     public function sendResponse() {
+        // Enviar Headers
         $this->sendHeaders();
+
+        // Imprime conteúdo
         switch($this->contentType) {
             case 'text/html':
                 echo $this->content;
