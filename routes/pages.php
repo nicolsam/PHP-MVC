@@ -3,23 +3,30 @@
 use \App\Http\Response;
 use \App\Controller\Pages;
 
-// Rota Home
+// Rota HOME
 $obRouter->get('/', [
     function() {
         return new Response(200, Pages\Home::getHome());
     }
 ]);
 
-// Rota Sobre
+// Rota SOBRE
 $obRouter->get('/sobre', [
     function() {
         return new Response(200, Pages\About::getAbout());
     }
 ]);
 
-// Rota Sobre
-$obRouter->get('/pagina/{idPagina}', [
-    function($idPagina) {
-        return new Response(200, 'Página '.$idPagina);
+// Rota DEPOIMENTOS
+$obRouter->get('/depoimentos', [
+    function() {
+        return new Response(200, Pages\Testimony::getTestimonies());
+    }
+]);
+
+// Rota DEPOIMENTOS (INSERT)
+$obRouter->post('/depoimentos', [
+    function() {
+        return new Response(200, Pages\Testimony::getTestimonies());
     }
 ]);
