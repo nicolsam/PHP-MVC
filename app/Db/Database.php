@@ -66,10 +66,10 @@ class Database {
      * Método responsável por definir os atributos da classe Dabatase
      */
     private function setAttributes() {
-        $this->HOST     = getenv('HOST');
-        $this->NAME     = getenv('NAME');
-        $this->USERNAME = getenv('USERNAME');
-        $this->PASSWORD = getenv('PASSWORD');
+        $this->HOST     = getenv('DB_HOST');
+        $this->NAME     = getenv('DB_NAME');
+        $this->USERNAME = getenv('DB_USERNAME');
+        $this->PASSWORD = getenv('DB_PASSWORD');
     }
 
     /**
