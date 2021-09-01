@@ -52,4 +52,18 @@ class Testimony {
 
         return true;
     }
+
+    /**
+     * Método responsável por retornar os depoimentos 
+     *
+     * @param string $where
+     * @param string  $order
+     * @param string $limit
+     * @param string $field
+     * 
+     * @return PDOStatement
+     */
+    public static function getTestimonies($where = null, $order = null, $limit = null, $fields = '*') {
+        return (new Database('depoimentos'))->select($where, $order, $limit, $fields);
+    }
 }
