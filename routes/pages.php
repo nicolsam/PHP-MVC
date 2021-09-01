@@ -1,5 +1,9 @@
 <?php
 
+// Mostrar erros
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+
 use \App\Http\Response;
 use \App\Controller\Pages;
 
@@ -26,7 +30,7 @@ $obRouter->get('/depoimentos', [
 
 // Rota DEPOIMENTOS (INSERT)
 $obRouter->post('/depoimentos', [
-    function() {
-        return new Response(200, Pages\Testimony::getTestimonies());
+    function($request) {
+        return new Response(200, Pages\Testimony::insertTestimony($request));
     }
 ]);
