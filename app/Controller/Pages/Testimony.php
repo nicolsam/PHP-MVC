@@ -13,8 +13,24 @@ class Testimony extends Page {
      * @return [type]
      *   [return description]
      */
-    private static function getTestimonyItems() {
+    private static function getTestimonyItens() {
+        // Depoimentos
+        $itens = '';
 
+        // Resultados da página
+        $results = EntityTestimony::getTestimonies(null, 'id DESC');
+
+        // Renderiza o item
+        while($obTestimony = $results->fetchObject(EntityTestimony::class)) {
+            $itens .= View::render('pages/testimony/item', [
+                'nome' => $obTestimony->nome,
+                'mensagem' => $obTestimony->mensagem,
+                'data' => date('d/m/Y H:i:s', strtotime($obTestimony->data))
+            ]);
+        }
+
+        // Retorna os depoimentos
+        return $itens;
     }
     /**
      * Método responsável por retornar o conteúdo (view) de depoimentos
@@ -24,7 +40,7 @@ class Testimony extends Page {
     public static function getTestimonies() {
         // View de DEPOIMENTOS
         $content = View::render('pages/testimonies', [
-            'itens' => self::getTestimonyItems()
+            'itens' => self::getTestimonyItens()
         ]);
 
         // Retorna a View de DEPOIMENTOS
