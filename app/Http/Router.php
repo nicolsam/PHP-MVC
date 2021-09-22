@@ -227,4 +227,13 @@ class Router {
     }
 
 
+    /**
+     * Método responsável por retornar a URL atual
+     *
+     * @return string
+     */
+    public function getCurrrentUrl() {
+        return $this->url.$this->getUri();
+    }
+
 }
