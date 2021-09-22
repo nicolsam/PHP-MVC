@@ -44,7 +44,7 @@ class Router {
      * @param string $url
      */
     public function __construct($url) {
-        $this->request = new Request();
+        $this->request = new Request($this);
         $this->url     = $url;
 
         $this->setPrefix();
