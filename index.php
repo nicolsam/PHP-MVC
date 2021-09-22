@@ -1,24 +1,15 @@
 <?php
 
+// Mostrar erros
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+
+
 require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/bootstrap/app.php';
 
 use \App\Http\Router;
-use \App\Utils\View;
-use \App\Common\Environment;
 
-// Carrega variáveis de ambiente
-Environment::load(__DIR__);
-
-// echo '<pre>';
-// print_r(getenv('URL'));
-// echo '</pre>'; exit;
-
-define('URL', getenv('URL'));
-
-// Define o valor padrão das variáveis
-View::init([
-    'URL' => URL
-]);
 
 // Inicia o router
 $obRouter = new Router(URL);
